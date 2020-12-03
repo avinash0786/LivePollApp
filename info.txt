@@ -1,1 +1,4 @@
 This is the file for info share do open regularly.
+
+start app with:
+    npm run watch

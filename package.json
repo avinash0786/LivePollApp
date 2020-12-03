@@ -1,0 +1,58 @@
+{
+  "name": "livepollapp",
+  "version": "1.0.0",
+  "description": "This is a live polling app.",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.6",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.0",
+    "handlebars-helpers": "^0.10.0",
+    "memorystore": "^1.6.2",
+    "moment": "^2.27.0",
+    "moment-timezone": "^0.5.31",
+    "mongodb": "^3.6.0",
+    "mongoose": "^5.9.26",
+    "nodemailer": "^6.4.11",
+    "nodemailer-mailgun-transport": "^2.0.0",
+    "nodemon": "^2.0.4",
+    "passport": "^0.4.1",
+    "passport-google-oauth2": "^0.2.0",
+    "saslprep": "^1.0.3"
+  },
+  "devDependencies": {
+    "handlebars": "^4.7.6",
+    "hbs": "^4.1.1"
+  },
+  "scripts": {
+    "watch": "nodemon ./index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avinash0786/LivePollApp.git"
+  },
+  "author": "https://github.com/avinash0786/",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avinash0786/LivePollApp/issues"
+  },
+  "homepage": "https://github.com/avinash0786/LivePollApp#readme",
+  "contributors": [
+    {
+      "name": "Rahul Ray",
+      "email": "flavio@flaviocopes.com",
+      "url": "https://github.com/"
+    },
+    {
+      "name": "Tarun Rana",
+      "email": "flavio@flaviocopes.com",
+      "url": "https://github.com/"
+    }
+  ]
+}
