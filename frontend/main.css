@@ -1,0 +1,15 @@
+.tabs{
+    display: inline-block;
+    width: 420px;
+    height: 400px;
+    flex-direction: column;
+    background-color: aqua;
+    margin-right: 12px;
+    float: left;
+}
+.alltabs{
+    max-width: 1344;
+    margin-left: 90px;
+    margin-top: 30px;
+    height: auto;
+}
