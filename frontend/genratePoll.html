@@ -1,0 +1,74 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="main.css">
+    <title>Genaration of Poll</title>
+    <script>
+        var askiValue = 66;
+        function addOption() {
+            console.log("entered in function")
+
+            var Add = document.getElementById("option");
+
+            var br = document.createElement("br");
+
+            var l = document.createElement("LABEL");
+            l.setAttribute("for", "male");
+            var t = document.createTextNode(String.fromCharCode(++askiValue));
+
+            var input =document.createElement("input");
+            input.setAttribute("type", "text");
+
+           
+            document.body.appendChild(br);
+            l.appendChild(t);
+            document.body.appendChild(l);
+            document.body.appendChild(br);
+            console.log(askiValue);
+            document.body.appendChild(br);
+            document.body.appendChild(br);
+             document.body.appendChild(input);
+            document.body.appendChild(br);
+         
+            
+
+
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container1">
+        <div class="centered">
+
+            <!-- <form  method="POST"> -->
+            <label class="label" for="pollname">Name of Poll</label>
+            <input class="input" type="text">
+            <hr>
+            <h1 class="is-size-4">Options</h1>
+            <br>
+            <label for="options">A</label>
+            <input class="input" type="text" placeholder="Option A">
+            <br>
+            <label for="options">B</label>
+            <input class="input" type="text" placeholder="Option B">
+            <br>
+            <br>
+
+            <button onclick="addOption()" id="option" class="button has-background-link has-text-white"> Add
+                Option</button>
+
+            <button class="button is-success">Genrate Poll</button>
+
+            <!-- </form> -->
+
+        </div>
+    </div>
+</body>
+
+</html>

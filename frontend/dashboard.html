@@ -6,6 +6,15 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="main.css">
+
+    <script>
+function redirect()
+{
+    var nameOfPoll=document.getElementById('name').Value;
+    console.log(nameOfPoll);
+    onclick=window.location.href='genratePoll.html';
+}
+    </script>
 </head>
 
 <body>
@@ -33,7 +42,7 @@
               <input class="input" type="text" placeholder="Text input">
             </div>
             <div class="buttons">
-                <button class="button is-link m-3">Create Poll</button>
+                <button onclick="redirect()" id="name" class="button is-link m-3">Create Poll </button>
               </div>
           </div>
           
