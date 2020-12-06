@@ -41,38 +41,50 @@ app.use(express.static(path.join(__dirname,"./public")));
 app.get("/", async (req,res)=>{
     res.render('dashboard')
 })
-app.get("/gen", async (req,res)=>{
+app.get("/genPoll", async (req,res)=>{
     res.render('genPoll')
 })
 
 app.post('/generatePoll',async (req,res)=>{
     console.log(req.body)
+    let ops=req.body.option.length;
+    let val=new Array(ops);
+    val.fill(0)
+    console.log(val)
     let pollNew=new poll({
-        creator:req.body.name,
+        name:req.body.name,
         topic:req.body.topic,
         option:req.body.option,
-        value:[23,12,43,54]
-    })
-    res.json(req.body)
-})
-
-app.get("/addPoll", async (req,res)=>{
-    let pollNew=new poll({
-        topic:"First poll",
-        option:{
-            'A':'first option',
-            'B':'second option',
-            'C':'third option',
-            'D':'forth option',
-        },
-        value:[23,12,43,54]
+        value:val
     })
     pollNew.save()
-        .then(d=>{
-            res.send("New poll generated")
-        })
+    console.log(pollNew)
+    res.redirect('/getPoll')
 })
 
+
+
+app.get('/checkPoll',function (req,res) {
+    console.log("checking poll for: "+req.query.name);
+    poll.findOne({name:req.query.name})
+        .then(data=>{
+            console.log(data)
+            if(data)
+            {
+                return res.send({
+                    exist:false
+                })
+            }
+            else {
+                return res.send({
+                    exist:true
+                })
+            }
+        })
+        .catch(e=>{
+            res.send("Error checking")
+        })
+})
 app.get("/getPoll", async (req,res)=>{
 
     poll.find({})

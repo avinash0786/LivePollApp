@@ -4,11 +4,13 @@
     <form action="/generatePoll" method="post">
 
     <div style="height: 11vh;background: rgba(182,226,171,0);">
-        <div style="height: 49px;background: rgba(216,94,94,0);"><label style="margin-left: 13px;">Name of Poll</label><input type="text" name="name" style="margin: 11px;margin-left: 40px;width: 80%;"></div><small class="form-text text-muted" style="color: rgb(1,1,1);font-size: 15px;margin-left: 15.2%;">This name is not available&nbsp;&nbsp;<i class="fa fa-times-circle" style="color: rgb(223,28,28);"></i></small>
-        <small
-                class="form-text text-muted" style="color: rgb(1,1,1);font-size: 15px;margin-left: 15.2%;">This name is available&nbsp;&nbsp;<i class="fa fa-check-circle" style="color: rgb(28,162,57);"></i></small>
+        <div  style="height: 49px;background: rgba(216,94,94,0);">
+            <label style="margin-left: 13px;" >Name of Poll</label><input  id="pollName" type="text" name="name" oninput="checkPoll()" style="margin: 11px;margin-left: 40px;width: 80%;">
+        </div>
+        <small id="cross" class="form-text text-muted" style="color: rgb(1,1,1);font-size: 15px;margin-left: 15.2%; display: none">This name is not available&nbsp;&nbsp;<i class="fa fa-times-circle" style="color: rgb(223,28,28);"></i></small>
+        <small id="ok" class="form-text text-muted" style="color: rgb(1,1,1);font-size: 15px;margin-left: 15.2%; display: none">This name is available&nbsp;&nbsp;<i class="fa fa-check-circle" style="color: rgb(28,162,57);"></i></small>
     </div>
-    <div style="height: 57px;background: rgba(218,171,226,0);margin-top: 31px;">
+    <div style="height: 57px;background: rgba(218,171,226,0);margin-top: 5px;">
         <div style="height: 49px;background: rgba(216,94,94,0);"><label style="margin-left: 13px;">Topic of Poll</label><input type="text" name="topic" style="margin: 11px;margin-left: 40px;width: 80%;"></div>
     </div>
     <div id="parent" style="height: fit-content;background: rgba(171,209,226,0);margin-top: 10px;">
@@ -26,7 +28,7 @@
             <button id="add" class="btn btn-success float-right" type="button" style="padding: 2px;font-size: 18px;margin-right: 72px;margin-top: 0;margin-left: 15px;">Add Option</button>
             <button id="remove" class="btn btn-danger float-right" type="button" style="padding: 2px;font-size: 18px;">Remove Option</button>
         </div>
-        <button class="btn btn-primary" type="submit" style="margin: auto;margin-bottom: 10px;margin-top: 10px;margin-left: 45%;background: rgba(9,118,236,0.93);padding: 3px;font-size: 21px;">Publish Poll</button>
+        <button id="sub" class="btn btn-primary" type="submit" style="margin: auto;margin-bottom: 10px;margin-top: 10px;margin-left: 45%;background: rgba(9,118,236,0.93);padding: 3px;font-size: 21px; " disabled>Publish Poll</button>
 
     </form>
 </div>

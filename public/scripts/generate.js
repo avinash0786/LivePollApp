@@ -25,6 +25,7 @@ $(function (){
                 <input type="text" name="option" style="margin: 0px;margin-left: 40px;width: 100%;height: 100%;margin-top: 0px; font-size: 20px" placeholder="Option">
             </div>
         </div>`)
+        $('#parent > div input:last-child').focus()
     })
     $('#remove').click(()=>{
         if(op<2){
@@ -36,10 +37,37 @@ $(function (){
         $('#parent > div:last-child').remove();
     })
 })
-// slect.append(`
-//                 <tr style="height: 12px;font-size: 16px;"><td style="padding: 0px;height: 12px;width: 24%;">TID ${dis.tid }</td>
-//                 <td style="padding: 0px;height: 12px;width: 40%;">${dis.NameMatch[0].fname}</td>
-//                 <td style="padding: 0px;height: 12px;">
-//                 <i class="fa fa-rupee" style="color: rgb(25,119,187);border-color: rgb(13,67,171);margin-left: 0px;">
-//                 </i> ${dis.amount} <i class="fa fa-question-circle float-right" data-target="#transmodel" data-toggle="modal" onclick='getTransInfo(${dis.tid},this)' style="color: rgb(208,37,37);padding-top: 2px;margin-top: 2px; cursor: pointer;"></i>
-//                 </td></tr>`)
+
+
+async function checkPoll() {
+    console.log("Checking name of poll")
+    var pollName=document.getElementById('pollName').value;
+    if(!pollName) {
+        document.getElementById("ok").style.display="none";
+        document.getElementById("cross").style.display="none";
+        return;
+    }
+
+    if(pollName.length<2){
+        document.getElementById("ok").style.display="none";
+        document.getElementById("cross").style.display="none";
+        document.getElementById("sub").disabled = true;
+
+        return;
+    }
+    var returned=await fetch("/checkPoll?name="+pollName)
+    returned.json()
+        .then(d=>{
+            if(d.exist)
+            {
+                document.getElementById("ok").style.display="inline";
+                document.getElementById("cross").style.display="none";
+                document.getElementById("sub").disabled = false;
+            }
+            else {
+                document.getElementById("cross").style.display="inline";
+                document.getElementById("ok").style.display="none";
+                document.getElementById("sub").disabled = true;
+            }
+        })
+}
