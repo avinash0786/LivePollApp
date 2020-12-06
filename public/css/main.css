@@ -1,0 +1,33 @@
+.tabs{
+    display: inline-block;
+    width: 420px;
+    height: 400px;
+    flex-direction: column;
+    background-color: aqua;
+    margin-right: 12px;
+    float: left;
+}
+.alltabs{
+    max-width: 1344;
+    margin-left: 90px;
+    margin-top: 30px;
+    height: auto;
+}
+ .container1{
+    height: 100%;
+    width: 100%;
+    background-color: aquamarine;
+    
+     
+    
+}
+.centered{
+    display: flex;
+    flex-direction: column;
+    width:50%;
+  margin:auto;
+  padding:100px;
+  
+    
+    
+}

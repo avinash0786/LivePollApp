@@ -1,0 +1,49 @@
+
+    <div class="container">
+
+        <h1 class=" py-2 px-2 title has-background-primary py-2 px-2">Welcome to Live Poll</h1>
+        <br>
+        <div class="field is-grouped">
+            <p class="control is-expanded">
+                <input class="input" type="text" placeholder="Search the Poll">
+            </p>
+            <p class="control">
+                <a class="button is-info is-hovered">
+                    Search
+                </a>
+            </p>
+        </div>
+    </div>
+    <div class="alltabs p-3">
+        <div class="tabs  has-background-primary-light p-5 ">
+           <h1 class="is-size-2 p-4">Genrate Poll</h1>
+           <div class="field p-3 m-3">
+            <label class="label">Name of Poll</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Text input">
+            </div>
+            <div class="buttons">
+                <button onclick="redirect()" id="name" class="button is-link m-3">Create Poll </button>
+              </div>
+          </div>
+          
+        </div>
+        <div class="tabs has-background-primary-light p-5 ">
+            <h1 class="is-size-2 p-4">Popular Polls </h1>
+            <div class="content">
+                <ol type="1">
+                  <li><a href="" class="is-link">Poll 1</a></li>
+                  <li><a href="" class="is-link">Poll 2</a></li>
+                  <li><a href="" class="is-link">Poll 3</a></li>
+                </ol>
+            </div>
+        </div>
+        <div class="tabs has-background-primary-light p-5 ">
+            <h1 class="is-size-2 p-4">Live Poll</h1>
+            <h1 class="is-size-4 m-3 ">Farmers Bill</h1>
+            <progress class="progress is-warning" value="75" max="100">Not In favour of Farmers</progress>
+            <progress class="progress is-warning" value="25" max="100">In Favour of Farmers</progress>
+            <progress class="progress is-warning" value="10" max="100">NOthing to say</progress>
+        </div>
+    </div>
+    </div>

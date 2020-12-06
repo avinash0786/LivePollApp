@@ -23,7 +23,7 @@ const poll=mongoose.Schema({
         default:0
     },
     option:{
-        type:Object,
+        type:Array,
         required:true
     },
     value:{
