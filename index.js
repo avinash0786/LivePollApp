@@ -41,6 +41,20 @@ app.use(express.static(path.join(__dirname,"./public")));
 app.get("/", async (req,res)=>{
     res.render('dashboard')
 })
+app.get("/gen", async (req,res)=>{
+    res.render('genPoll')
+})
+
+app.post('/generatePoll',async (req,res)=>{
+    console.log(req.body)
+    let pollNew=new poll({
+        creator:req.body.name,
+        topic:req.body.topic,
+        option:req.body.option,
+        value:[23,12,43,54]
+    })
+    res.json(req.body)
+})
 
 app.get("/addPoll", async (req,res)=>{
     let pollNew=new poll({
