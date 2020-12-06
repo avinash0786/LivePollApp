@@ -85,11 +85,26 @@ app.get('/checkPoll',function (req,res) {
             res.send("Error checking")
         })
 })
-app.get("/getPoll", async (req,res)=>{
-
-    poll.find({})
+app.get("/showPoll", async (req,res)=>{
+    console.log("Checking Value for poll: "+req.query.name)
+    poll.find({name:req.query.name.toString()}, )
         .then(d=>{
-            res.jsonp(d)
+            console.log(d[0])
+            res.render('pollPage',{
+                options:d[0].option,
+                title:d[0].topic,
+                creator:d[0].creator,
+                date:d[0].generatedOn,
+                value:d[0].value
+            })
+        })
+})
+app.get("/getPollVal", async (req,res)=>{
+    console.log("Checking Value for poll: "+req.query.name)
+    poll.find({name:req.query.name.toString()}, {value:1,_id:0})
+        .then(d=>{
+            console.log(d[0].value)
+            res.jsonp(d[0].value)
         })
 })
 
