@@ -39,6 +39,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,"./public")));
 
 app.get("/", async (req,res)=>{
+    //tarun task
     res.render('dashboard')
 })
 app.get("/genPoll", async (req,res)=>{
@@ -59,7 +60,7 @@ app.post('/generatePoll',async (req,res)=>{
     })
     pollNew.save()
     console.log(pollNew)
-    res.redirect('/getPoll')
+    res.json(pollNew)
 })
 
 
@@ -87,7 +88,7 @@ app.get('/checkPoll',function (req,res) {
 })
 app.get("/showPoll", async (req,res)=>{
     console.log("Checking Value for poll: "+req.query.name)
-    poll.find({name:req.query.name.toString()}, )
+    poll.findOne({name:req.query.name.toString()}, )
         .then(d=>{
             console.log(d[0])
             res.render('pollPage',{
@@ -98,6 +99,7 @@ app.get("/showPoll", async (req,res)=>{
                 value:d[0].value
             })
         })
+
 })
 app.get("/getPollVal", async (req,res)=>{
     console.log("Checking Value for poll: "+req.query.name)
