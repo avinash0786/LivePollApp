@@ -1,20 +1,24 @@
 <script src="./scripts/generate.js"></script>
 
 <div class="container shadow" style="background: rgba(233,230,230,0.5);width: 70%;padding-bottom: 18px;margin: auto;margin-top: 107px;">
+    <div id="live" class="float-right" style="height: 23px;color: var(--danger);background: rgba(255,175,175,0);">
+        <h5 class="d-flex" style="color: var(--dark);padding-bottom: 1px;margin-bottom: 0px;width: 66px;padding-left: 5px;padding-right: 2px;border-width: .4px;border-style: solid;border-radius: 6px;"><i class="fa fa-circle" style="font-size: 14px;padding: 0px;padding-bottom: 1px;margin: 0;margin-bottom: -1px;margin-top: 7px;margin-right: 4px;color: var(--danger);"></i>LIVE</h5>
+    </div>
+    <h5 id="pollNaam">{{name}}</h5>
     <h1>Topic: {{title}}</h1>
-    <div style="height: fit-content;margin-top: 34px;">
+    <div id="par" style="height: fit-content;margin-top: 34px;">
 
         {{#each options }}
         <div style="height: 43px;background: rgba(158,205,141,0);width: 101%;padding: 0px;padding-bottom: 3px;padding-left: 2px;margin-top: 6px;border-radius: 2px;">
             <div style="height: 14px;width: 100%;background: rgba(196,158,158,0);">
                 <div class="progress" style="height: 100%;width: 100%;">
-                    <div class="progress-bar bg-success progress-bar-animated" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">50%</div>
+                    <div class="progress-bar bg-success progress-bar-animated" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">0%</div>
                 </div>
             </div>
             <div style="height: 21px;width: 100%;background: rgba(196,158,158,0);">
                 <p class="d-inline" style="width: 80%;">{{this}}</p>
                 <div class="float-right" style="height: 21px;width: 16%;background: rgba(158,196,194,0);">
-                    <p class="d-inline" style="width: 80%;">Votes: 23</p>
+                    <p class="d-inline" style="width: 80%;">Votes: </p>
                 </div>
             </div>
         </div>

@@ -90,23 +90,28 @@ app.get("/showPoll", async (req,res)=>{
     console.log("Checking Value for poll: "+req.query.name)
     poll.findOne({name:req.query.name.toString()}, )
         .then(d=>{
-            console.log(d[0])
+            console.log(d)
             res.render('pollPage',{
-                options:d[0].option,
-                title:d[0].topic,
-                creator:d[0].creator,
-                date:d[0].generatedOn,
-                value:d[0].value
+                options:d.option,
+                title:d.topic,
+                creator:d.creator,
+                date:d.generatedOn,
+                value:d.value,
+                name:d.name
             })
+        })
+        .catch(error => {
+            console.log("Error")
+            res.send(error)
         })
 
 })
 app.get("/getPollVal", async (req,res)=>{
     console.log("Checking Value for poll: "+req.query.name)
-    poll.find({name:req.query.name.toString()}, {value:1,_id:0})
+    poll.find({name:req.query.name}, {value:1,_id:0,totalPolls:1})
         .then(d=>{
-            console.log(d[0].value)
-            res.jsonp(d[0].value)
+            console.log(d)
+            return res.send(d)
         })
 })
 
