@@ -40,8 +40,16 @@ app.use(express.static(path.join(__dirname,"./public")));
 
 app.get("/", async (req,res)=>{
     //tarun task
-    res.render('dashboard')
+    
+  poll.find({name:req.query.name}).then(ans=>{console.log(ans[0].topic)
+    
+
+    res.render('dashboard',{topic:ans[0].topic,
+        topic1:ans[1].topic,
+        topic2:ans[0].topic
+      })
 })
+});
 app.get("/genPoll", async (req,res)=>{
     res.render('genPoll')
 })
