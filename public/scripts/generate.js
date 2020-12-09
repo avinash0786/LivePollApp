@@ -9,6 +9,7 @@ $(()=>{
     let pollName=$("#pollNaam").text()
     console.log(pollName)
     setInterval(updatePoll, 1000);
+
     // updatePoll()
     async function updatePoll(){
         let values;
