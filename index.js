@@ -41,12 +41,14 @@ app.use(express.static(path.join(__dirname,"./public")));
 app.get("/", async (req,res)=>{
     //tarun task
     
-  poll.find({name:req.query.name}).then(ans=>{console.log(ans[0].topic)
+  poll.find({}).then(ans=>{console.log(ans[0].topic)
     
 
-    res.render('dashboard',{topic:ans[0].topic,
+    res.render('dashboard',{
+        topic:ans[0].topic,
         topic1:ans[1].topic,
-        topic2:ans[0].topic
+        topic2:ans[2].topic
+        
       })
 })
 });

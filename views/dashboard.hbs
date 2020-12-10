@@ -18,13 +18,11 @@
         <div class="tabs  has-background-primary-light p-5 ">
            <h1 class="is-size-2 p-4">Genrate Poll</h1>
            <div class="field p-3 m-3">
-            <label class="label">Name of Poll</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Text input">
-            </div>
+          
+           
             <div class="buttons">
-                <button onclick="redirect()" id="name" class="button is-link m-3">Create Poll </button>
-                <a href="/genPoll">Generate poll page</a>
+                
+                <a  style="text-decoration: none;" href="/genPoll"<button class="button is-link is-medium m-3">Create Poll </button></a>
               </div>
           </div>
           
@@ -47,6 +45,9 @@
             <progress class="progress is-warning" value="75" max="100">Not In favour of Farmers</progress>
             <progress class="progress is-warning" value="25" max="100">In Favour of Farmers</progress>
             <progress class="progress is-warning" value="10" max="100">NOthing to say</progress>
+            <br>
+            <button class="button is-danger is-outlined ml-4">Previous Poll</button>
+            <button class="button is-success is-outlined is-right">Next Poll</button>
         </div>
     </div>
     </div>

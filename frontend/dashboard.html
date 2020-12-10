@@ -7,14 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="main.css">
 
-    <script>
-function redirect()
-{
-    var nameOfPoll=document.getElementById('name').Value;
-    console.log(nameOfPoll);
-    onclick=window.location.href='genratePoll.html';
-}
-    </script>
+  
 </head>
 
 <body>
@@ -37,13 +30,9 @@ function redirect()
         <div class="tabs  has-background-primary-light p-5 ">
            <h1 class="is-size-2 p-4">Genrate Poll</h1>
            <div class="field p-3 m-3">
-            <label class="label">Name of Poll</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Text input">
-            </div>
-            <div class="buttons">
-                <button onclick="redirect()" id="name" class="button is-link m-3">Create Poll </button>
-              </div>
+        
+           
+            <a href="/genPoll"<button class="button is-link m-3">Create Poll </button></a>
           </div>
           
         </div>
@@ -63,6 +52,11 @@ function redirect()
             <progress class="progress is-warning" value="75" max="100">Not In favour of Farmers</progress>
             <progress class="progress is-warning" value="25" max="100">In Favour of Farmers</progress>
             <progress class="progress is-warning" value="10" max="100">NOthing to say</progress>
+            <br>
+            <div class="buttons has-addons">
+                <button class="button is-small button is-info is-outlined">Previous Poll</button>
+                <button class="button is-small button is-success is-outlined">Next Poll</button>
+              </div>
         </div>
     </div>
     </div>
