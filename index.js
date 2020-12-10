@@ -41,14 +41,24 @@ app.use(express.static(path.join(__dirname,"./public")));
 app.get("/", async (req,res)=>{
     //tarun task
     
+<<<<<<< HEAD
   poll.find({}).then(ans=>{console.log(ans[0].topic)
     
+=======
+  poll.find({}).limit(3)
+      .then(ans=>{
+          console.log(ans[0].topic)
+      console.log(ans)
+>>>>>>> b260b97fac2bc12edb3dcb35576cd9efb3d1b178
 
     res.render('dashboard',{
         topic:ans[0].topic,
         topic1:ans[1].topic,
         topic2:ans[2].topic
+<<<<<<< HEAD
         
+=======
+>>>>>>> b260b97fac2bc12edb3dcb35576cd9efb3d1b178
       })
 })
 });
@@ -118,7 +128,7 @@ app.get("/showPoll", async (req,res)=>{
 })
 app.get("/getPollVal", async (req,res)=>{
     console.log("Checking Value for poll: "+req.query.name)
-    poll.find({name:req.query.name}, {value:1,_id:0,totalPolls:1})
+    poll.find({name:req.query.name}, {value:1,_id:0,totalPolls:1,topic:1})
         .then(d=>{
             console.log(d)
             return res.send(d)
