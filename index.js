@@ -41,25 +41,23 @@ app.use(express.static(path.join(__dirname,"./public")));
 app.get("/", async (req,res)=>{
     //tarun task
     
-<<<<<<< HEAD
-  poll.find({}).then(ans=>{console.log(ans[0].topic)
-    
-=======
   poll.find({}).limit(3)
       .then(ans=>{
           console.log(ans[0].topic)
       console.log(ans)
->>>>>>> b260b97fac2bc12edb3dcb35576cd9efb3d1b178
 
     res.render('dashboard',{
-        topic:ans[0].topic,
+        topic0:ans[0].topic,
         topic1:ans[1].topic,
-        topic2:ans[2].topic
-<<<<<<< HEAD
-        
-=======
->>>>>>> b260b97fac2bc12edb3dcb35576cd9efb3d1b178
-      })
+        topic2:ans[2].topic,
+        options:ans[0].option,
+        title:ans[0].topic,
+        creator:ans[0].creator,
+        date:ans[0].generatedOn,
+        value:ans[0].value,
+        name:ans[0].name
+    })
+     
 })
 });
 app.get("/genPoll", async (req,res)=>{
@@ -134,6 +132,17 @@ app.get("/getPollVal", async (req,res)=>{
             return res.send(d)
         })
 })
+
+// toDo polling 
+app.get('/:id',(req,res)=>{
+    poll.findOne({
+        _id:req.params.id
+    },{topic:1,option:1,generatedOn:1,_id:0}).then((data)=>{
+        res.send(data);
+
+    })
+});
+
 
 ///  LISITING SERVER  DONT EDIT   //
 app.listen(process.env.PORT, function(req,result){
