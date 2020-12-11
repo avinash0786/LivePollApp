@@ -148,21 +148,27 @@ app.get('/:id',(req,res)=>{
 
 app.post('/submitOption',((req, res) => {
     console.log(req.body);
-    let text=`"value.$[${req.body.ans}]"`
-    console.log(text)
-    poll.updateOne({name:req.body.poll},
-        { $inc: { totalPolls: -1 },
-                $inc: { "value.$[]": 1 }
-        }
-    )
-        .then(success=>{
-            console.log(success)
+    let text11=`value.${req.body.ans}`.toString()
+    poll.findOne({name:req.body.poll},{value:1})
+        .then(data=>{
+            console.log(data)
+            let updatedArray=data.value;
+            updatedArray[req.body.ans]++;
+            console.log(updatedArray)
+            poll.updateOne({name:req.body.poll},
+                { $inc: {totalPolls: 1 },
+                    $set:{value:updatedArray}
+                }
+            )
+                .then(success=>{
+                    console.log(success)
+                    res.redirect('/showPoll?name='+req.body.poll)
+                })
+                .catch(e=>{
+                    console.log(e)
+                    res.send(e)
+                })
         })
-        .catch(e=>{
-            console.log(e)
-        })
-
-    res.redirect('/showPoll?name='+req.body.poll)
 }))
 
 ///  LISITING SERVER  DONT EDIT   //
