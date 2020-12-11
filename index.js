@@ -81,8 +81,6 @@ app.post('/generatePoll',async (req,res)=>{
     res.json(pollNew)
 })
 
-
-
 app.get('/checkPoll',function (req,res) {
     console.log("checking poll for: "+req.query.name);
     poll.findOne({name:req.query.name})
@@ -137,12 +135,35 @@ app.get("/getPollVal", async (req,res)=>{
 app.get('/:id',(req,res)=>{
     poll.findOne({
         _id:req.params.id
-    },{topic:1,option:1,generatedOn:1,_id:0}).then((data)=>{
-        res.send(data);
+    },{topic:1,option:1,generatedOn:1,_id:1,value:1,name:1}).then((data)=>{
+        console.log(data)
+        res.render('viewPoll',{
+            options:data.option,
+            nameOf:data.topic,
+            id:data.name
+        })
 
     })
 });
 
+app.post('/submitOption',((req, res) => {
+    console.log(req.body);
+    let text=`"value.$[${req.body.ans}]"`
+    console.log(text)
+    poll.updateOne({name:req.body.poll},
+        { $inc: { totalPolls: -1 },
+                $inc: { "value.$[]": 1 }
+        }
+    )
+        .then(success=>{
+            console.log(success)
+        })
+        .catch(e=>{
+            console.log(e)
+        })
+
+    res.redirect('/showPoll?name='+req.body.poll)
+}))
 
 ///  LISITING SERVER  DONT EDIT   //
 app.listen(process.env.PORT, function(req,result){

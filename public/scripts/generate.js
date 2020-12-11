@@ -8,7 +8,7 @@ $(()=>{
     let votes=$("#par > div >div:last-child >div>p")
     let pollName=$("#pollNaam").text()
     console.log(pollName)
-    setInterval(updatePoll, 1000);
+    // setInterval(updatePoll, 1000);
 
     // updatePoll()
     async function updatePoll(){
