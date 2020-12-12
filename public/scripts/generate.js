@@ -8,7 +8,7 @@ $(()=>{
     let votes=$("#par > div >div:last-child >div>p")
     let pollName=$("#pollNaam").text()
     console.log(pollName)
-    setInterval(updatePoll, 1000);
+    // setInterval(updatePoll, 1000);
 
     // updatePoll()
     async function updatePoll(){
@@ -83,6 +83,37 @@ $(function (){
     })
 })
 
+////////////////starthere--------------------------------------------------------------
+$(function()
+{
+    $('#searchBar').autocomplete({
+        source:function(req,res){
+            $.ajax({
+                url:"search/",
+                dataType:"jsonp",
+                type:"GET",
+                data:req,
+                success:function(data){
+                    res(data)
+                        // console.log(data);
+                },
+            });
+        },
+        minLength:1,
+        autofocus:true,
+        select:function(event,ui)
+        {
+            if(ui.item)
+            $('#searchBar').text(ui.item.label);
+            var pollId=ui.item.id;
+
+            // //test
+            var url = pollId ;
+             $(location).attr('href',url);
+        }
+    });
+});
+//////////end here------------------------------------------------------------------------------
 
 async function checkPoll() {
     console.log("Checking name of poll")
