@@ -41,13 +41,28 @@ app.use(express.static(path.join(__dirname, "./public")));
 //**************************************************************Code here***************************************************** */
 
 
-const redirectPoling=(req,res,next)=>{
-
+const checkPolled=(req,res,next)=>{
+    console.log(req.session)
+    console.log(req.query)
+    let temp=req.session.polled;
+    temp.forEach(poll=>{
+        // console.log(poll)
+        if (poll===req.query.name){
+            console.log("POll allready polled: redirect to show poll")
+            return res.redirect("/showPoll?name="+req.query.name);
+        }
+    })
+    next()
 }
 const redirectShowPoll=(req,res,next)=>{
 
 }
 app.get("/", async (req, res) => {
+    if (!req.session.polled){
+        console.log("Session polled not available")
+        console.log("Session initializes")
+        req.session.polled=[];
+    }
     //tarun task
 
     poll.find({}).limit(3)
@@ -56,9 +71,9 @@ app.get("/", async (req, res) => {
             //   console.log(ans)
 
             res.render('dashboard', {
-                topic0: ans[0].topic,
-                topic1: ans[1].topic,
-                topic2: ans[2].topic,
+                topic0: ans[0].name,
+                topic1: ans[1].name,
+                topic2: ans[2].name,
                 options: ans[0].option,
                 title: ans[0].topic,
                 creator: ans[0].creator,
@@ -67,6 +82,9 @@ app.get("/", async (req, res) => {
                 name: ans[0].name
             })
 
+        })
+        .catch(error => {
+            res.send("Error \n: "+error)
         })
 });
 
@@ -142,18 +160,24 @@ app.get("/getPollVal", async (req,res)=>{
 })
 
 // toDo polling 
-app.get('/:id',(req,res)=>{
+app.get('/pollfor',checkPolled,(req,res)=>{
+
+    console.log(req.query)
     poll.findOne({
-        _id:req.params.id
+        name:req.query.name
     },{topic:1,option:1,generatedOn:1,_id:1,value:1,name:1})
         .then((data)=>{
-        // console.log(data)
+        console.log(data)
         res.render('viewPoll',{
             options:data.option,
             nameOf:data.topic,
             id:data.name
         })
     })
+        .catch(error => {
+            console.log("error has occured")
+            res.send("error in finding poll")
+        })
 });
 
 app.post('/submitOption',((req, res) => {
@@ -171,6 +195,7 @@ app.post('/submitOption',((req, res) => {
                 }
             )
                 .then(success=>{
+                    req.session.polled.push(req.body.poll)       //adding poll to the session
                     console.log(success)
                     res.redirect('/showPoll?name='+req.body.poll)
                 })
@@ -182,8 +207,9 @@ app.post('/submitOption',((req, res) => {
 }))
 /////latest created  -------------------------------  
 app.get('/search', (req, res) => {
+    // console.log("Search trig: "+req.query["term"])
     var regex = new RegExp(req.query["term"], 'i');
-    var searchFilter = poll.find({ topic: regex }, { 'topic': 1 }).sort({ "generatedOn": -1 }).limit(5);
+    var searchFilter = poll.find({$or:[{topic: regex},{name:regex}] }, { 'name': 1 }).sort({ "generatedOn": -1 }).limit(5);
     searchFilter.exec(function (err, data) {
 
         var result = [];
@@ -192,8 +218,8 @@ app.get('/search', (req, res) => {
                 
                 data.forEach(user => {
                     let obj = {
-                        id: user._id,
-                        label: user.topic
+                        name: user.name,
+                        label: user.name
                     };
                     // console.log(obj);
                     

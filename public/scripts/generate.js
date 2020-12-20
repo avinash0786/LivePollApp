@@ -8,7 +8,8 @@ $(()=>{
     let votes=$("#par > div >div:last-child >div>p")
     let pollName=$("#pollNaam").text()
     console.log(pollName)
-    // setInterval(updatePoll, 1000);
+    let sec=1000;
+    setInterval(updatePoll, 2*sec);
 
     // updatePoll()
     async function updatePoll(){
@@ -107,10 +108,10 @@ $(function()
         {
             if(ui.item)
             $('#searchBar').text(ui.item.label);
-            var pollId=ui.item.id;
+            var pollId=ui.item.name;
 
             // //test
-            var url = pollId ;
+            var url = "pollfor?name="+pollId ;
              $(location).attr('href',url);
         }
     });
