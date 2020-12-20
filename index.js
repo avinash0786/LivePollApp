@@ -65,7 +65,7 @@ app.get("/", async (req, res) => {
     }
     //tarun task
 
-    poll.find({}).limit(3)
+    poll.find({}).sort({ "generatedOn": -1 }).limit(3)
         .then(ans => {
             //       console.log(ans[0].topic)
             //   console.log(ans)
@@ -105,8 +105,13 @@ app.post('/generatePoll',async (req,res)=>{
         value:val
     })
     pollNew.save()
-    console.log(pollNew)
-    res.json(pollNew)
+        .then(d=>{
+            console.log(pollNew)
+            res.redirect("/showPoll?name="+req.body.name)
+        })
+        .catch(e=>{
+            res.send(e)
+        })
 })
 
 app.get('/checkPoll',function (req,res) {
