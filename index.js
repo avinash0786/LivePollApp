@@ -38,8 +38,15 @@ app.engine("hbs", hbs.engine)
 app.set('view engine', 'hbs');
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "./public")));
-//**************************************************************Code herre***************************************************** */
+//**************************************************************Code here***************************************************** */
 
+
+const redirectPoling=(req,res,next)=>{
+
+}
+const redirectShowPoll=(req,res,next)=>{
+
+}
 app.get("/", async (req, res) => {
     //tarun task
 
@@ -138,14 +145,14 @@ app.get("/getPollVal", async (req,res)=>{
 app.get('/:id',(req,res)=>{
     poll.findOne({
         _id:req.params.id
-    },{topic:1,option:1,generatedOn:1,_id:1,value:1,name:1}).then((data)=>{
+    },{topic:1,option:1,generatedOn:1,_id:1,value:1,name:1})
+        .then((data)=>{
         // console.log(data)
         res.render('viewPoll',{
             options:data.option,
             nameOf:data.topic,
             id:data.name
         })
-
     })
 });
 
@@ -174,9 +181,9 @@ app.post('/submitOption',((req, res) => {
         })
 }))
 /////latest created  -------------------------------  
-app.get('/search/', (req, res) => {
+app.get('/search', (req, res) => {
     var regex = new RegExp(req.query["term"], 'i');
-    var searchFilter = poll.find({ topic: regex }, { 'topic': 1 }).sort({ "updated_at": -1 }).sort({ "created_at": -1 }).limit(5);
+    var searchFilter = poll.find({ topic: regex }, { 'topic': 1 }).sort({ "generatedOn": -1 }).limit(5);
     searchFilter.exec(function (err, data) {
 
         var result = [];

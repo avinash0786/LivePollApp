@@ -89,7 +89,7 @@ $(function()
     $('#searchBar').autocomplete({
         source:function(req,res){
             $.ajax({
-                url:"search/",
+                url:"/search",
                 dataType:"jsonp",
                 type:"GET",
                 data:req,
@@ -97,10 +97,12 @@ $(function()
                     res(data)
                         // console.log(data);
                 },
+                error:(error)=>{
+                    alert("error occured in autocomplete function !")
+                }
             });
         },
         minLength:1,
-        autofocus:true,
         select:function(event,ui)
         {
             if(ui.item)
