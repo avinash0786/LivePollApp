@@ -115,8 +115,9 @@
             autofocus:true,
             select:function(event,ui)
             {
-                if(ui.item)
-                $('#searchBar').text(req.)
+            if(ui.item)
+            $('#searchBar').text(ui.item.label);
+            var pollId=ui.item.name;
             }
         });
     });
