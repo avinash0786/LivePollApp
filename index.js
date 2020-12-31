@@ -186,6 +186,15 @@ app.get('/pollfor',checkPolled,(req,res)=>{
 });
 
 app.post('/submitOption',((req, res) => {
+    let temp=req.session.polled;
+    console.log(temp)
+    temp.forEach(poll=>{
+        // console.log(poll)
+        if (poll===req.body.poll){
+            console.log("POll allready polled: redirect to show poll")
+            return res.redirect("/showPoll?name="+req.body.poll);
+        }
+    })
     console.log(req.body);
     let text11=`value.${req.body.ans}`.toString()
     poll.findOne({name:req.body.poll},{value:1})
@@ -201,7 +210,7 @@ app.post('/submitOption',((req, res) => {
             )
                 .then(success=>{
                     req.session.polled.push(req.body.poll)       //adding poll to the session
-                    console.log(success)
+                    console.log("Poll saved")
                     res.redirect('/showPoll?name='+req.body.poll)
                 })
                 .catch(e=>{
