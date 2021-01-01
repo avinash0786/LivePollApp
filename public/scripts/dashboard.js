@@ -29,5 +29,6 @@ $(function()
             var url = "pollfor?name="+pollId ;
             $(location).attr('href',url);
         }
+      
     });
 });
