@@ -6,14 +6,16 @@
   background-color: aqua;
   margin-right: 50px;
   float: left;
+  box-shadow: 6px 10px 20px 5px #909190;
 }
 .live_tabs {
   display: inline-block;
   width: 800px;
-  height: 400px;
+  height: 500px;
   flex-direction: column;
   background-color: aqua;
   margin-left: 170px;
+  box-shadow: 6px 10px 20px 5px #909190;
 }
 
 .alltabs {
@@ -39,14 +41,14 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 .content {
   display: flex;
   width: 100%;
   max-width: 700px;
   max-height: 400px;
-  background-color: white;
+  background-color: rgba(253, 253, 253, 0.89);
   padding: 40px;
   flex-direction: column;
 }
