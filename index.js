@@ -3,9 +3,9 @@ const path = require("path")
 const bodyparser = require('body-parser');
 const session = require('express-session');
 const MemoryStore = require('memorystore')(session);
-const expHbs = require("express-handlebars")
+const expHbs = require("express-handlebars");
 var moment = require('moment');
-var tz = require("moment-timezone")
+var tz = require("moment-timezone");
 const helper = require("handlebars-helpers")();
 const poll = require('./models/mainPoll');
 
@@ -49,7 +49,7 @@ const checkPolled=(req,res,next)=>{
         // console.log(poll)
         if (poll===req.query.name){
             console.log("POll allready polled: redirect to show poll")
-            return res.redirect("/showPoll?name="+req.query.name);
+            res.redirect("/showPoll?name="+req.query.name);
         }
     })
     next()
@@ -185,18 +185,28 @@ app.get('/pollfor',checkPolled,(req,res)=>{
         })
 });
 
+app.get("/test",(req, res) => {
+    return res.redirect("/")
+    console.log("After redirect")
+})
+
 app.post('/submitOption',((req, res) => {
     let temp=req.session.polled;
     console.log(temp)
+    let flag=false;
     temp.forEach(poll=>{
         // console.log(poll)
         if (poll===req.body.poll){
             console.log("POll allready polled: redirect to show poll")
-            return res.redirect("/showPoll?name="+req.body.poll);
+            flag=true;
         }
     })
+    if (flag) {
+        console.log("Redirectign")
+        return res.redirect("/showPoll?name=" + req.body.poll);
+    }
+
     console.log(req.body);
-    let text11=`value.${req.body.ans}`.toString()
     poll.findOne({name:req.body.poll},{value:1})
         .then(data=>{
             // console.log(data)
@@ -214,7 +224,7 @@ app.post('/submitOption',((req, res) => {
                     res.redirect('/showPoll?name='+req.body.poll)
                 })
                 .catch(e=>{
-                    console.log(e)
+                    console.log("Error:  "+e)
                     res.send(e)
                 })
         })
