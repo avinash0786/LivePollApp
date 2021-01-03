@@ -1,55 +1,59 @@
-.tabs{
-    display: inline-block;
-    width: 420px;
-    height: 400px;
-    flex-direction: column;
-    background-color: aqua;
-    margin-right: 12px;
-    float: left;
+.tabs {
+  display: inline-block;
+  width: 600px;
+  height: 400px;
+  flex-direction: column;
+  background-color: aqua;
+  margin-right: 50px;
+  float: left;
+  box-shadow: 6px 10px 20px 5px #909190;
 }
-.alltabs{
-    max-width: 1344;
-    margin-left: 90px;
-    margin-top: 30px;
-    height: auto;
+.live_tabs {
+  display: inline-block;
+  width: 800px;
+  height: 500px;
+  flex-direction: column;
+  background-color: aqua;
+  margin-left: 170px;
+  box-shadow: 6px 10px 20px 5px #909190;
 }
- .container1{
-    height: 100%;
-    width: 100%;
-    background-color: aquamarine;
-    
-     
-    
+
+.alltabs {
+  max-width: 1344;
+  margin-left: 100px;
+  margin-top: 30px;
+  height: auto;
 }
-.centered{
-    display: flex;
-    flex-direction: column;
-    width:50%;
-  margin:auto;
-  padding:100px;
-  
-    
-    
+.container1 {
+  height: 100%;
+  width: 100%;
+  background-color: aquamarine;
 }
-.container2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    
+.centered {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  padding: 100px;
 }
-.content{
-    display: flex;
-    width: 100%;
-    max-width: 700px;
-    max-height: 400px;
-    background-color: white;
-    padding:40px;
-    flex-direction: column;
+.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
 }
-.forinput{
-    font-size: 22px;
-    height: 25px;
-    width: 25px;
+.content {
+  display: flex;
+  width: 100%;
+  max-width: 700px;
+  max-height: 400px;
+  background-color: rgba(253, 253, 253, 0.89);
+  padding: 40px;
+  flex-direction: column;
+}
+.forinput {
+  font-size: 22px;
+  height: 25px;
+  width: 25px;
 }

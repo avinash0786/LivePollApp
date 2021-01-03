@@ -30,20 +30,29 @@
         </div>
 
     </div>
-    <div class="tabs has-background-primary-light p-5 ">
+    <div class="tabs has-background-primary-light p-3 ">
         <h1 class="is-size-2 p-4">Popular Polls </h1>
-        <div class="content">
+        <div class="content p-2">
             <ol type="1">
 
-                <li><a href="/pollfor?name={{topic0}}" class="is-link">{{topic0}}</a></li>
-                <li><a href="/pollfor?name={{topic1}}" class="is-link">{{topic1}}</a></li>
-                <li><a href="/pollfor?name={{topic2}}" class="is-link">{{topic2}}</a></li>
+                <li>
+                    <h2><a style="text-decoration: none;" href="/pollfor?name={{topic0}}" class="is-link">{{topic0}}</a>
+                    </h2>
+                </li>
+                <li>
+                    <h2><a style="text-decoration: none;" href="/pollfor?name={{topic1}}" class="is-link">{{topic1}}</a>
+                    </h2>
+                </li>
+                <li>
+                    <h2><a style="text-decoration: none;" href="/pollfor?name={{topic2}}" class="is-link">{{topic2}}</a>
+                    </h2>
+                </li>
 
             </ol>
         </div>
     </div>
-    <div class="tabs has-background-primary-light p-5 ">
-        
+    <div class="live_tabs has-background-primary-light p-5 ">
+
         <h5 class="title" id="pollNaam">Name: {{name}}</h5>
         <h1 class="is-size-3">Topic: {{title}}</h1>
         <div id="par" style="height: fit-content;margin-top: 34px;">
@@ -69,6 +78,10 @@
                     class="form-text text-muted float-right">Poll Generated ON:
                     {{date}}</small></small>
         </div>
+        <br>
+        <br>
+        <div class="button is-primary ">Next</div>
+        <div class="button is-link ">Prev</div>
     </div>
 </div>
 </div>
