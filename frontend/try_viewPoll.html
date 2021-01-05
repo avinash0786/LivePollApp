@@ -24,6 +24,7 @@
                 
                   100% { transform:  rotate(360deg); }
                 }
+                
                 </style>
         <title>Live Poll</title>
     </head>
@@ -46,15 +47,11 @@
                     id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"
+                            <a class="nav-link" aria-current="page"
                                 href="#"><h3>Home</h3></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><h3>Polls</h3></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1"><h3>About
-                                    Us</h3> </a>
+                            <a class="nav-link active" href="#"><h3>Polls</h3></a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -68,58 +65,61 @@
         </nav>
 
         <div class="container-fluid bg-dark text-white d-flex flex-column p-5">
-            <div class="contianer p-5 d-flex flex-column align-items-center
-                justify-content-center">
-                <h1 class="display-3 p-3">Welcome to Live Polls</h1>
-                <figure class="text-center">
-                    <blockquote class="blockquote">
-                        <p>“Somewhere inside of all of us is the power to change
-                            the world.”</p>
-                    </blockquote>
-                    <figcaption class="blockquote-footer">
-                        By <cite title="Source Title">Roald Dahl</cite>
-                    </figcaption>
-                </figure>
-
-                <!-- <button type="button" class="btn bg-light text-Dark p-3 btn-lg">  Create Poll</button> -->
-            </div>
-            <div class="container">
-                <div class="row justify-content-end mx-auto">
-                    <div class="col">
-
+            <div class="contianer p-3 d-flex flex-column
+                justify-content-center align-items-center">
+                <div class="p-5">
+                    <div class="spinner-grow text-danger spinner-grow-sm"
+                        style="float:
+                        right;" role="status">
                     </div>
+                    <br>
+                    <h1 class="display-5">Name of the Topic</h1>
+                    <form action="" style="margin-left: 25px;">
+                        <label
+                            for="ans"
+                            style="font-size: xx-large;
+                            font-family: Cambria, Cochin, Georgia, Times, 'Times
+                            New Roman',
+                            serif;">
+                            <input type="radio" name="ans" style="height: 20px;
+                                width: 20px;" id=""
+                                class="forinput" />
+                            Option-1
+                        </label>
+                        <br />
+                        <label
+                            for="ans"
+                            style="font-size: xx-large;
+                            font-family: Cambria, Cochin, Georgia, Times, 'Times
+                            New Roman',
+                            serif;">
+                            <input type="radio" name="ans" style="height: 20px;
+                                width: 20px;" id=""
+                                class="forinput" />
+                            Option-2
+                        </label>
+                        <br />
+                        <label
+                            for="ans"
+                            style="font-size: xx-large;
+                            font-family: Cambria, Cochin, Georgia, Times, 'Times
+                            New Roman',
+                            serif;">
+                            <input type="radio" name="ans" style="height: 20px;
+                                width: 20px;" id=""
+                                class="forinput" />
+                            Option-3
+                        </label>
+                        <br />
+                        <br />
+                        <button type="submit"
+                            class="btn btn-outline-success">Submit
+                            Poll</button>
+                    </form>
 
-                    <div class="col">
-                        <button type="button" style="margin-left: 120px;"
-                            class="btn btn-large
-                            btn-outline-success
-                            p-3">
-
-                            Create Poll
-
-
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                height="20" fill="currentColor" class="bi
-                                bi-arrow-right-circle" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14
-                                    0A7 7 0 0
-                                    0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16
-                                    0zM4.5
-                                    7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0
-                                    0 0
-                                    .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1
-                                    0-.708.708L10.293 7.5H4.5z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="col">
-                        <img src="../public/sign.webp" class="rounded
-                            float-right"
-                            height="400px" width="300px" alt="">
-                    </div>
                 </div>
-            </div>
 
+            </div>
 
 
             <br><br>
@@ -130,8 +130,10 @@
                         <a href="#">Back to top</a>
                     </p>
                     <p> © LivePoll</p>
-                    <p>New to LivePoll? <a href="../../">Visit the homepage</a>
-                        or read our <a href="../../getting-started/">getting
+                    <p>New to LivePoll? <a href="../../">Visit the
+                            homepage</a>
+                        or read our <a
+                            href="../../getting-started/">getting
                             started guide</a>.</p>
                 </div>
             </footer>
