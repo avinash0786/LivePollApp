@@ -63,33 +63,34 @@ app.get("/", async (req, res) => {
         console.log("Session initializes")
         req.session.polled=[];
     }
-    //tarun task
-
-    poll.find({}).sort({ "generatedOn": -1 }).limit(3)
-        .then(ans => {
-            //       console.log(ans[0].topic)
-            //   console.log(ans)
-
-            res.render('dashboard', {
-                topic0: ans[0].name,
-                topic1: ans[1].name,
-                topic2: ans[2].name,
-                options: ans[0].option,
-                title: ans[0].topic,
-                creator: ans[0].creator,
-                date: ans[0].generatedOn,
-                value: ans[0].value,
-                name: ans[0].name
-            })
-
-        })
-        .catch(error => {
-            res.send("Error \n: "+error)
-        })
+    res.render("try")
+    // //tarun task
+    //
+    // poll.find({}).sort({ "generatedOn": -1 }).limit(3)
+    //     .then(ans => {
+    //         //       console.log(ans[0].topic)
+    //         //   console.log(ans)
+    //
+    //         res.render('dashboard', {
+    //             topic0: ans[0].name,
+    //             topic1: ans[1].name,
+    //             topic2: ans[2].name,
+    //             options: ans[0].option,
+    //             title: ans[0].topic,
+    //             creator: ans[0].creator,
+    //             date: ans[0].generatedOn,
+    //             value: ans[0].value,
+    //             name: ans[0].name
+    //         })
+    //
+    //     })
+    //     .catch(error => {
+    //         res.send("Error \n: "+error)
+    //     })
 });
 
 app.get("/genPoll", async (req,res)=>{
-    res.render('genPoll')
+    res.render('try_doPoll')
 })
 
 app.post('/generatePoll',async (req,res)=>{
@@ -144,7 +145,7 @@ app.get("/showPoll", async (req,res)=>{
                 options:d.option,
                 title:d.topic,
                 creator:d.creator,
-                date:d.generatedOn,
+                dateGen:d.generatedOn,
                 value:d.value,
                 name:d.name
             })
@@ -185,10 +186,6 @@ app.get('/pollfor',checkPolled,(req,res)=>{
         })
 });
 
-app.get("/test",(req, res) => {
-    return res.redirect("/")
-    console.log("After redirect")
-})
 
 app.post('/submitOption',((req, res) => {
     let temp=req.session.polled;

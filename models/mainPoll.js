@@ -10,7 +10,6 @@ const poll=mongoose.Schema({
     generatedOn:{
         type:Date,
         default: Date.now(),
-        required:true
     },
     name:{
         type:String,

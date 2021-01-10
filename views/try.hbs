@@ -1,33 +1,17 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Bootstrap CSS -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-            crossorigin="anonymous">
+<script src="./scripts/dashboard.js"></script>
+<body>
+    <style>
+        img:hover {
+            animation: shake 1s;
+            animation-iteration-count: 1;
+        }
 
-        <link rel='icon' href='../public/bar-chart-2.svg'
-            type='image/x-icon' sizes="16x16" />
-        <style>
-                img:hover {
-                  animation: shake 1s;
-                  animation-iteration-count: 1;
-                }
-                
-                @keyframes shake {
-                  0% { transform: rotate(0deg); }
-                
-                  100% { transform:  rotate(360deg); }
-                }
-                </style>
-        <title>Live Poll</title>
-    </head>
-    <body>
+        @keyframes shake {
+            0% { transform: rotate(0deg); }
+
+            100% { transform:  rotate(360deg); }
+        }
+    </style>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand font-weight-bold" href="#">
@@ -58,7 +42,7 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search"
+                        <input class="form-control me-2" type="search" id="searchBar"
                             style="width: 620px;"
                             placeholder="Search Polls" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
@@ -113,7 +97,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <img src="../public/sign.webp" class="rounded
+                        <img src="/sign.webp" class="rounded
                             float-right"
                             height="400px" width="300px" alt="">
                     </div>
@@ -154,4 +138,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     -->
     </body>
-</html>
