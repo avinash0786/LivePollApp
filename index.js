@@ -234,10 +234,10 @@ app.post('/submitOption',((req, res) => {
 
 //poll page route
 app.get('/polls', (req, res) => { 
-    poll.find({}).limit(5).then(ans => { 
-
+    poll.find({},{options: 0,generatedOn:0,value: 0 ,_id:0}).sort({ "totalPolls": -1 }).limit(5).then(ans => { 
+        console.log(ans);
         res.render('try_polls', {
-            topic: ans.tpoic;
+            poll: ans
 
         })
      })
