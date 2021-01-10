@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+            crossorigin="anonymous">
+
+        <link rel='icon' href='../public/bar-chart-2.svg'
+            type='image/x-icon' sizes="16x16" />
+        <style>
+                img:hover {
+                  animation: shake 1s;
+                  animation-iteration-count: 1;
+                }
+                
+                @keyframes shake {
+                  0% { transform: rotate(0deg); }
+                
+                  100% { transform:  rotate(360deg); }
+                }
+                
+                </style>
+        <title>Live Poll</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand font-weight-bold" href="#">
+                    <img src="../public/bar-chart-2 (1).svg" alt="" width="30"
+                        height="24">
+
+                    Live Poll </a>
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse"
+                    id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page"
+                                href="#"><h3>Home</h3></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#"><h3>Polls</h3></a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search"
+                            style="width: 620px;"
+                            placeholder="Search Polls" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid bg-dark text-white d-flex flex-column p-5">
+            <div class="contianer p-3 d-flex flex-column
+                justify-content-center align-items-center">
+                <div class="p-5">
+                    <div class="spinner-grow text-danger spinner-grow-sm"
+                        style="float:
+                        right;" role="status">
+                    </div>
+                    <br>
+                    <h1 class="display-5">Name of the Topic</h1>
+                    <form action="" style="margin-left: 25px;">
+                        <label
+                            for="ans"
+                            style="font-size: xx-large;
+                            font-family: Cambria, Cochin, Georgia, Times, 'Times
+                            New Roman',
+                            serif;">
+                            <input type="radio" name="ans" style="height: 20px;
+                                width: 20px;" id=""
+                                class="forinput" />
+                            Option-1
+                        </label>
+                        <br />
+                        <label
+                            for="ans"
+                            style="font-size: xx-large;
+                            font-family: Cambria, Cochin, Georgia, Times, 'Times
+                            New Roman',
+                            serif;">
+                            <input type="radio" name="ans" style="height: 20px;
+                                width: 20px;" id=""
+                                class="forinput" />
+                            Option-2
+                        </label>
+                        <br />
+                        <label
+                            for="ans"
+                            style="font-size: xx-large;
+                            font-family: Cambria, Cochin, Georgia, Times, 'Times
+                            New Roman',
+                            serif;">
+                            <input type="radio" name="ans" style="height: 20px;
+                                width: 20px;" id=""
+                                class="forinput" />
+                            Option-3
+                        </label>
+                        <br />
+                        <br />
+                        <button type="submit"
+                            class="btn btn-outline-success">Submit
+                            Poll</button>
+                    </form>
+
+                </div>
+
+            </div>
+
+
+            <br><br>
+
+            <footer class="text-light">
+                <div class="container">
+                    <p class="float-right">
+                        <a href="#">Back to top</a>
+                    </p>
+                    <p> © LivePoll</p>
+                    <p>New to LivePoll? <a href="../../">Visit the
+                            homepage</a>
+                        or read our <a
+                            href="../../getting-started/">getting
+                            started guide</a>.</p>
+                </div>
+            </footer>
+        </div>
+
+
+
+
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+    </body>
+</html>
