@@ -146,7 +146,7 @@ app.get("/showPoll", async (req,res)=>{
                 options:d.option,
                 title:d.topic,
                 creator:d.creator,
-                date:d.generatedOn,
+                dateGen:d.generatedOn,
                 value:d.value,
                 name:d.name
             })
@@ -188,10 +188,7 @@ app.get('/pollfor',checkPolled,(req,res)=>{
         })
 });
 
-app.get("/test",(req, res) => {
-    return res.redirect("/")
-    console.log("After redirect")
-})
+
 
 app.post('/submitOption',((req, res) => {
     let temp=req.session.polled;
@@ -235,7 +232,8 @@ app.post('/submitOption',((req, res) => {
 
 //poll page route
 app.get('/polls', (req, res) => { 
-    poll.find({},{options: 0,generatedOn:0,value: 0 ,_id:0}).sort({ "totalPolls": -1 }).limit(5).then(ans => { 
+    poll.find({},{options: 0,generatedOn:0,value: 0 ,_id:0}).sort({ "totalPolls": -1 }).limit(5).lean()
+        .then(ans => {
         console.log(ans);
         res.render('try_polls', {
             poll: ans

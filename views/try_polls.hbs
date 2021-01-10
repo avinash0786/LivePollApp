@@ -1,5 +1,6 @@
+<script src="./scripts/dashboard.js"></script>
 
-    <body>
+<body>
         <style>
             img:hover {
               animation: shake 1s;
@@ -43,7 +44,7 @@
                     </ul>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search"
-                            style="width: 620px;"
+                            style="width: 620px;" id="searchBar"
                             placeholder="Search Polls" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
@@ -54,15 +55,14 @@
         <div class="container-fluid bg-dark text-white d-flex flex-column p-5">
             <div class="container p-5 d-flex flex-column align-items-center
                 justify-content-center">
-                <h1>Check Polls <img src="../public/check-square (1).svg"
+                <h1>Top 5 Polls <img src="/check-square (1).svg"
                         alt=""></h1>
                 <div class="list-group bg-dark text-light p-5"
                     style="width:
                     540px;min-width: 50px;">
 
                       {{#each poll}}
-<p>{{this.totalPolls}}</p>
-                    <a href="/showPolls?name={{this.name}}" class="list-group-item p-3
+                    <a href="/showPoll?name={{this.name}}" class="list-group-item p-3
                         list-group-item-action active
                         bg-dark text-light"> {{this.topic}}
                      
