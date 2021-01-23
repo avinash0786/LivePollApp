@@ -46,13 +46,21 @@ const checkPolled=(req,res,next)=>{
     console.log(req.session)
     console.log(req.query)
     let temp=req.session.polled;
-    temp.forEach(poll=>{
-        // console.log(poll)
-        if (poll===req.query.name){
-            console.log("POll allready polled: redirect to show poll")
-            res.redirect("/showPoll?name="+req.query.name);
-        }
-    })
+    if (!temp){
+        console.log("Session not inifialized")
+        console.log("Session polled not available")
+        console.log("Session initializes")
+        req.session.polled=[];
+    }
+    else {
+        temp.forEach(poll=>{
+            // console.log(poll)
+            if (poll===req.query.name){
+                console.log("POll allready polled: redirect to show poll")
+                res.redirect("/showPoll?name="+req.query.name);
+            }
+        })
+    }
     next()
 }
 
@@ -144,7 +152,6 @@ app.get("/getPollVal", async (req,res)=>{
 // toDo polling 
 
 app.get('/pollfor',checkPolled,(req,res)=>{
-
     console.log(req.query)
     poll.findOne({
         name:req.query.name
