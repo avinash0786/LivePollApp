@@ -1,19 +1,4 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Bootstrap CSS -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-            crossorigin="anonymous">
-
-        <link rel='icon' href='../public/bar-chart-2.svg'
-            type='image/x-icon' sizes="16x16" />
-        <style>
+<style>
                 img:hover {
                   animation: shake 1s;
                   animation-iteration-count: 1;
@@ -27,8 +12,7 @@
                 
                 </style>
         <title>Live Poll</title>
-    </head>
-    <body>
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand font-weight-bold" href="#">
@@ -112,9 +96,7 @@
                         </label>
                         <br />
                         <br />
-                        <button type="submit"
-                            class="btn btn-outline-success">Submit
-                            Poll</button>
+                        <button type="submit" class="btn btn-outline-success">Submit Poll</button>
                     </form>
 
                 </div>
@@ -157,3 +139,23 @@
     -->
     </body>
 </html>
+
+
+<!--<div class="container2 has-background-primary">-->
+<!--    <div class="content">-->
+<!--        <h1 class="has-size-2 has-text-link">{{nameOf}}</h1>-->
+<!--        <form action="/submitOption" method="post">-->
+        <!--            {{#each options}}-->
+<!--            <label for="ans" style="font-size:xx-large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">-->
+<!--                <input type="radio" name="ans" id="" class="forinput" value={{this}}>{{this}}-->
+<!--            </label>-->
+<!--            <br>-->
+        <!--            {{/each}}-->
+<!--            <br>-->
+<!--            <input name="poll" type="text" value={{id}} style="display: none">-->
+<!--            <button type="submit" class="button btn-outline-success">Submit Poll</button>-->
+<!--        </form>-->
+
+
+<!--    </div>-->
+<!--</div>-->

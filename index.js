@@ -55,9 +55,7 @@ const checkPolled=(req,res,next)=>{
     })
     next()
 }
-const redirectShowPoll=(req,res,next)=>{
 
-}
 app.get("/", async (req, res) => {
     if (!req.session.polled){
         console.log("Session polled not available")
@@ -65,29 +63,6 @@ app.get("/", async (req, res) => {
         req.session.polled=[];
     }
     res.render('try')
-    //tarun task
-
-    // poll.find({}).sort({ "generatedOn": -1 }).limit(3)
-    //     .then(ans => {
-    //         //       console.log(ans[0].topic)
-    //         //   console.log(ans)
-    //
-    //         res.render('dashboard', {
-    //             topic0: ans[0].name,
-    //             topic1: ans[1].name,
-    //             topic2: ans[2].name,
-    //             options: ans[0].option,
-    //             title: ans[0].topic,
-    //             creator: ans[0].creator,
-    //             date: ans[0].generatedOn,
-    //             value: ans[0].value,
-    //             name: ans[0].name
-    //         })
-    //
-    //     })
-    //     .catch(error => {
-    //         res.send("Error \n: "+error)
-    //     })
 });
 
 app.get("/genPoll", async (req,res)=>{

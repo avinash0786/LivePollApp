@@ -39,7 +39,8 @@ $(function (){
 
 async function checkPoll() {
     console.log("Checking name of poll")
-    var pollName=document.getElementById('pollName').value;
+    var pollName=document.getElementById('pollName').value.replace(/\s/g, "");
+    console.log(pollName)
     if(!pollName) {
         document.getElementById("ok").style.display="none";
         document.getElementById("cross").style.display="none";
