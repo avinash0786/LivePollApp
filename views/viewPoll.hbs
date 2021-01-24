@@ -1,7 +1,8 @@
 <script src="./scripts/show.js"></script>
+
+
 <div class="container-fluid bg-dark text-white d-flex flex-column p-5">
-    <div class="contianer p-3 d-flex flex-column
-                justify-content-center align-items-center">
+    <div class="contianer p-3 d-flex flex-column justify-content-center align-items-center">
         <div class="p-5">
             <div class="spinner-grow text-danger spinner-grow-sm"
                  style="float:
@@ -12,7 +13,7 @@
             <form action="/submitOption" method="post">
                     {{#each options}}
                     <label for="ans" style="font-size:xx-large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-                        <input type="radio" name="ans" id="" class="forinput" value={{this}}>{{this}}
+                        <input type="radio" name="ans" id="" class="forinput" required value={{this}}>{{this}}
                     </label>
                     <br>
                         {{/each}}

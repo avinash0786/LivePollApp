@@ -70,7 +70,9 @@ app.get("/", async (req, res) => {
         console.log("Session initializes")
         req.session.polled=[];
     }
-    res.render('try')
+    res.render('try',{
+        home:"active",
+    })
 });
 
 app.get("/genPoll", async (req,res)=>{
@@ -82,9 +84,10 @@ app.post('/generatePoll',async (req,res)=>{
     let ops=req.body.option.length;
     let val=new Array(ops);
     val.fill(0)
+    let pollname=req.body.name.toString().replace(/\s/g, "_")
     console.log(val)
     let pollNew=new poll({
-        name:req.body.name,
+        name:pollname,
         topic:req.body.topic,
         option:req.body.option,
         value:val
@@ -92,7 +95,7 @@ app.post('/generatePoll',async (req,res)=>{
     pollNew.save()
         .then(d=>{
             console.log(pollNew)
-            res.redirect("/showPoll?name="+req.body.name)
+            res.redirect("/showPoll?name="+pollname)
         })
         .catch(e=>{
             res.send(e)
@@ -218,7 +221,8 @@ app.get('/polls', (req, res) => {
         .then(ans => {
         console.log(ans);
         res.render('try_polls', {
-            poll: ans
+            poll: ans,
+            polling:"active"
         })
      })
 })
