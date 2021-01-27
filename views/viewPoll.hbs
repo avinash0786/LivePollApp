@@ -1,7 +1,8 @@
 <script src="./scripts/show.js"></script>
+
+
 <div class="container-fluid bg-dark text-white d-flex flex-column p-5">
-    <div class="contianer p-3 d-flex flex-column
-                justify-content-center align-items-center">
+    <div class="contianer p-3 d-flex flex-column justify-content-center align-items-center">
         <div class="p-5">
             <div class="spinner-grow text-danger spinner-grow-sm" style="float:
                         right;" role="status">
@@ -9,6 +10,7 @@
             <br>
             <h1 class="display-5 float-left">Topic: {{nameOf}}</h1>
             <form action="/submitOption" method="post">
+<<<<<<< HEAD
                 {{#each options}}
                 <label for="ans"
                     style="font-size:xx-large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
@@ -16,6 +18,14 @@
                 </label>
                 <br>
                 {{/each}}
+=======
+                    {{#each options}}
+                    <label for="ans" style="font-size:xx-large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                        <input type="radio" name="ans" id="" class="forinput" required value={{this}}>{{this}}
+                    </label>
+                    <br>
+                        {{/each}}
+>>>>>>> 49bc15d1eac7795c6914d35230f05b6ae5c68154
                 <br>
                 <input name="poll" type="text" value={{id}} style="display: none">
                 <button type="submit" class="button btn-outline-success">Submit Poll</button>
