@@ -7,41 +7,43 @@
     }
 
     @keyframes shake {
-        0% { transform: rotate(0deg); }
+        0% {
+            transform: rotate(0deg);
+        }
 
-        100% { transform:  rotate(360deg); }
+        100% {
+            transform: rotate(360deg);
+        }
     }
-
 </style>
 <title>Live Poll</title>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand font-weight-bold" href="#">
-            <img src="../public/bar-chart-2 (1).svg" alt="" width="30"
-                 height="24">
+            <img src="../public/bar-chart-2 (1).svg" alt="" width="30" height="24">
 
             Live Poll </a>
-        <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse"
-             id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page"
-                       href="/"><h3>Home</h3></a>
+                    <a class="nav-link" aria-current="page" href="/">
+                        <h3>Home</h3>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/polls"><h3>Polls</h3></a>
+                    <a class="nav-link " href="/polls">
+                        <h3>Polls</h3>
+                    </a>
                 </li>
             </ul>
             <form class="d-flex">
-                <input class="form-control me-2" type="search" style="width: 620px;" placeholder="Search Polls" aria-label="Search" id="searchBar">
+                <input class="form-control me-2" type="search" style="width: 620px;" placeholder="Search Polls"
+                    aria-label="Search" id="searchBar">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>

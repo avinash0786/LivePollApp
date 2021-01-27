@@ -3,23 +3,25 @@
     <div class="contianer p-3 d-flex flex-column
                 justify-content-center align-items-center">
         <div class="p-5">
-            <div class="spinner-grow text-danger spinner-grow-sm"
-                 style="float:
+            <div class="spinner-grow text-danger spinner-grow-sm" style="float:
                         right;" role="status">
             </div>
             <br>
             <h1 class="display-5 float-left">Topic: {{nameOf}}</h1>
             <form action="/submitOption" method="post">
-                    {{#each options}}
-                    <label for="ans" style="font-size:xx-large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-                        <input type="radio" name="ans" id="" class="forinput" value={{this}}>{{this}}
-                    </label>
-                    <br>
-                        {{/each}}
+                {{#each options}}
+                <label for="ans"
+                    style="font-size:xx-large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                    <input type="radio" name="ans" id="" class="forinput" value={{this}}>{{this}}
+                </label>
+                <br>
+                {{/each}}
                 <br>
                 <input name="poll" type="text" value={{id}} style="display: none">
                 <button type="submit" class="button btn-outline-success">Submit Poll</button>
+
             </form>
+
 
         </div>
 
