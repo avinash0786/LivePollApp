@@ -17,6 +17,13 @@
                 </label>
                 <br>
                 {{/each}}
+                {{#each options}}
+                <label for="ans"
+                    style="font-size:xx-large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                    <input type="radio" name="ans" id="" class="forinput" required value={{this}}>{{this}}
+                </label>
+                <br>
+                {{/each}}
                 <br>
                 <input name="poll" type="text" value={{id}} style="display: none">
                 <button type="submit" class="button btn-outline-success">Submit Poll</button>
